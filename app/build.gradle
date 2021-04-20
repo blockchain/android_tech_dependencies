@@ -1,0 +1,90 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlinx-serialization'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.blockchain.codechallenge"
+        minSdkVersion 27
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+implementation 'androidx.core:core-ktx:1.3.2'
+implementation 'androidx.appcompat:appcompat:1.2.0'
+implementation 'com.google.android.material:material:1.3.0'
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+// Unit tests are not required, but just in case:
+testImplementation 'junit:junit:4.13.1'
+testImplementation "org.mockito:mockito-core:2.10.0"
+testImplementation "com.nhaarman:mockito-kotlin:1.5.0"
+testImplementation "org.amshove.kluent:kluent:1.19"
+testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+
+androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+// Extra useful dependencies
+// Networking
+implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+implementation "com.squareup.okhttp3:okhttp:4.9.0"
+implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
+// Json Parsing
+implementation 'com.google.code.gson:gson:2.8.6'
+implementation 'com.squareup.moshi:moshi:1.11.0'
+implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
+implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+
+// Dependency injection
+implementation 'org.koin:koin-android:2.2.1'
+implementation "org.koin:koin-androidx-viewmodel:2.2.1"
+implementation 'com.google.dagger:dagger-android:2.30.1'
+kapt 'com.google.dagger:dagger-compiler:2.30.1'
+implementation 'com.google.dagger:dagger-android-support:2.30.1'
+annotationProcessor 'com.google.dagger:dagger-android-processor:2.30.1'
+annotationProcessor 'com.google.dagger:dagger-compiler:2.30.1'
+implementation 'com.google.dagger:hilt-android:2.28-alpha'
+kapt 'com.google.dagger:hilt-android-compiler:2.28-alpha'
+
+// Reactive communication
+implementation 'org.jetbrains.kotlinx:kotlinx«-coroutines-android:1.3.9'
+implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+
+// Logging
+implementation "com.jakewharton.timber:timber:4.7.1"
+
+}
